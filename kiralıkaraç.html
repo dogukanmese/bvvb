@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiralık Araçlar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .araçlar {
+            background-color: #fff;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 36px;
+        }
+
+        .feature-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .row {
+            background-color: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 280px;
+            margin: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .row:hover {
+            transform: scale(1.05);
+        }
+
+        .row img {
+            width: 100%;
+            height: 200px; /* Sabit yükseklik */
+            object-fit: contain; /* Resmin tamamı görünür */
+            border-bottom: 2px solid #ddd;
+        }
+
+        h4 {
+            margin: 15px 0;
+            color: #444;
+            font-size: 24px;
+            cursor: pointer;
+            text-transform: capitalize;
+        }
+
+        h4:hover {
+            color: #0099cc;
+        }
+
+        .reserve-btn {
+            background-color: #0099cc;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .reserve-btn:hover {
+            background-color: #0077b3;
+        }
+        
+       
+ /* Genel stil ayarları */
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Sticky header */
+        .sticky {
+    position: fixed; /* Sayfa yukarıda sabit kalsın */
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: top 0.3s ease; /* Animasyon efekti */
+}
+
+      /* Logo kısmı */
+      .sticky .logo {
+            font-size: 19px;
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;  
+            align-items: center;
+        }
+
+        .sticky .logo span {
+            font-size:19px;
+            color: #D4B36A; /* Turuncu renk */
+            margin-left: 5px;
+        }
+
+
+        /* Navbar listesi */
+        .navbar {
+            list-style-type: none;
+            display: flex;  
+            gap: 15px;
+        }
+
+        .navbar li {
+            display: inline-block;
+        }
+
+        .navbar li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Navbar link hover efekti */
+        .navbar li a:hover {
+           /* Turuncu arka plan */
+            border-radius: 5px;
+        }
+
+        /* Müşteri hizmetleri linki */
+        .musterihizmet {
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+        }
+
+        .musterihizmet:hover {
+            background-color: #f2a900;
+            border-radius: 5px;
+        }
+
+        /* Hamburger menü ikonu */
+        .menu-icon {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 5px;
+           
+        }
+
+        /* Mobil uyumlu header */
+        @media (max-width: 768px) {
+            .sticky {
+        flex-direction: row; /* Satır düzeninde tut */
+        align-items: center;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: #ffffff;
+    }
+    .navbar.open {
+        display: flex;
+    }
+
+            .navbar li {
+                width: 100%;
+                text-align: center;
+                background-color: #D4B36A;;
+            }
+
+            .navbar li a {
+                padding: 1px;
+            }
+
+            /* Hamburger menü ikonu görünür hale gelir */
+            .menu-icon {
+        display: flex;
+        margin-left: auto; /* Sağa yasla */
+    }
+
+            /* Açık menü */
+            .navbar.open {
+                display: flex;
+            }
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<br><br><br><br><br>
+  
+<bbody>
+    <header class="sticky">
+        <img src="resim/logoooo.jpg" height="90" alt="AKASLAN Logo">
+        <a class="logo" onclick="window.location.href='index.html'">AKASLAN<span>TURİZM</span></a>
+
+        <!-- Hamburger Menü İkonu -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <!-- Navbar -->
+        <ul class="navbar">
+            <li><a href="#" onclick="window.location.href='hakkımızda.html'">Hakkımızda</a></li>
+            <li><a href="#" onclick="window.location.href='yat.html'">Yat Turu</a></li>
+            <li><a href="#" onclick="window.location.href='kiralıkaraç.html'">Kiralık Araç</a></li>
+           
+            <li><a href="tel:+90 5354940385">İletişim</a></li>
+
+        </ul>
+    </header>
+
+    <script>
+        
+    let lastScrollTop = 0;
+    const header = document.querySelector(".sticky");
+
+    window.addEventListener("scroll", function() {
+        let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            // Aşağı kaydırıyorsa menüyü gizle
+            header.style.top = "-100px"; 
+        } else {
+            // Yukarı kaydırıyorsa menüyü göster
+            header.style.top = "0"; 
+        }
+
+        lastScrollTop = scrollTop;
+    });
+
+        // Menü açma ve kapama fonksiyonu
+        function toggleMenu() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+    </script>
+</bbody>
+<body>
+
+    <section class="araçlar">
+        <h2>Kiralık Araçlar</h2>
+        <div class="feature-content">
+            <div class="row">
+                <img src="resim/fiategea.jpg" onclick="window.location.href='arac1.html'">
+                <h4 onclick="window.location.href='arac1.html'">Fiat Egea</h4>
+                <button class="reserve-btn" onclick="window.location.href='kiralama.html'">Kirala</button>
+            </div>
+            <div class="row">
+                <img src="resim/rena.jpg" onclick="window.location.href='arac2.html'">
+                <h4 onclick="window.location.href='arac2.html'">Renault Clio</h4>
+                <button class="reserve-btn" onclick="window.location.href='kiralama1.html'">Kirala</button>
+            </div>
+            <div class="row">
+                <img src="resim/corol.jpg" onclick="window.location.href='arac3.html'">
+                <h4 onclick="window.location.href='arac3.html'">Toyota Corolla</h4>
+                <button class="reserve-btn" onclick="window.location.href='kiralama2.html'">Kirala</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
